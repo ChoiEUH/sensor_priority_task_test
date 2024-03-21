@@ -505,11 +505,11 @@ void ThermistorTask02(void const * argument)
 void GasTask03(void const * argument)
 {
   /* USER CODE BEGIN GasTask03 */
+	memset(uart,0,sizeof(uart));
   /* Infinite loop */
   for(;;)
   {
 	  HAL_ADC_Start_IT(&hadc3);
-
 	 	  sprintf(uart,"%d\r\n",gas);
 	 	  HAL_UART_Transmit(&huart3,uart,sizeof(uart),0xFFFF);
 	     osDelay(1000);
